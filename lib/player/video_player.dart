@@ -52,7 +52,7 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
                   Padding(
                     padding: const EdgeInsets.all(20.0),
                     child: Text(
-                      "Failed to load video. Please check the video URL.",
+                      "Failed to load vid. Please check the vid URL.",
                       style: TextStyle(color: Colors.red, fontSize: 16),
                     ),
                   )
