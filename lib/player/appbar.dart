@@ -38,12 +38,12 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            showBackButton
-                ? IconButton(
-              icon: const Icon(Icons.arrow_back, color: Colors.white),
-              onPressed: () => Navigator.of(context).pop(),
-            )
-                : const SizedBox(width: 48), // placeholder to align title center
+            // showBackButton
+            //     ? IconButton(
+            //   icon: const Icon(Icons.arrow_back, color: Colors.white),
+            //   onPressed: () => Navigator.of(context).pop(),
+            // )
+            //     : const SizedBox(width: 48), // placeholder to align title center
 
             Expanded(
               child: Center(

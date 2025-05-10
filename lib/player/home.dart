@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
 import 'package:nafstube/player/video_player.dart';
 import 'package:nafstube/player/up_video.dart';
-
+import 'package:nafstube/player/appbar.dart';
 
 
 class HomePage extends StatefulWidget {
@@ -30,23 +30,54 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("nafstube "),
-leading: InkWell(
-  onTap: (){
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) =>UploadPage(),
+      appBar: const CustomAppBar(
+        title: 'Custom AppBar',
+        showBackButton: true,
       ),
-    );
-  },
-    child: Icon(Icons.add)),
 
+
+
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            DrawerHeader(
+              decoration: BoxDecoration(color: Colors.blue),
+              child: Text(
+                'My Drawer Header',
+                style: TextStyle(color: Colors.white, fontSize: 24),
+              ),
+            ),
+            ListTile(
+              leading: Icon(Icons.home),
+              title: Text('Home'),
+              onTap: () {
+                Navigator.pop(context); // Close drawer
+                // Handle navigation
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.settings),
+              title: Text('Settings'),
+              onTap: () {
+                Navigator.pop(context);
+                // Handle navigation
+              },
+            ),
+          ],
+        ),
       ),
+
+
+
+
+
+
+
       body: Row(
         children: [
           Container(
-            width: MediaQuery.of(context).size.width/6,
+            width: MediaQuery.of(context).size.width/10,
             height: MediaQuery.of(context).size.height,
             color: Colors.red,
           ),
@@ -57,7 +88,8 @@ leading: InkWell(
           Container(
             width: MediaQuery.of(context).size.width/1.3,
             height: MediaQuery.of(context).size.height,
-            color: Colors.green,),
+            color: Colors.green,
+          ),
 
 
           // ListView.builder(
