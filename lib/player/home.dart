@@ -3,6 +3,8 @@ import 'package:dio/dio.dart';
 import 'package:nafstube/player/video_player.dart';
 import 'package:nafstube/player/up_video.dart';
 
+
+
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
@@ -46,7 +48,8 @@ leading: InkWell(
           Container(
             width: MediaQuery.of(context).size.width/6,
             height: MediaQuery.of(context).size.height,
-            color: Colors.red,),
+            color: Colors.red,
+          ),
 
 
           Spacer(),
