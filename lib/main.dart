@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:nafstube/player/home.dart';
-import 'package:video_player/video_player.dart';
+import 'package:nafstube/player/video.dart';
+import 'package:nafstube/player/bar.dart';
+import 'package:nafstube/player/responsive.dart';
+import 'package:nafstube/player/sidemenu.dart';
+
 
 
 void main() {
@@ -15,42 +18,38 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        drawer: Drawer(
-          child: ListView(
-            padding: EdgeInsets.zero,
-            children: <Widget>[
-              DrawerHeader(
-                decoration: BoxDecoration(color: Colors.blue),
-                child: Text(
-                  'My Drawer Header',
-                  style: TextStyle(color: Colors.white, fontSize: 24),
+        key: _scaffoldKey,
+
+        drawer: side(),
+
+
+
+        body: SafeArea(
+          child: Column(
+            children: [
+              Bar(),
+              Expanded(
+                child: Row(
+                  children: [
+                    if (Responsive.isDesktop(context))
+                      Expanded(flex: 1, child: side()),
+
+                    Expanded(flex: 5, child: video()),
+                  ],
                 ),
-              ),
-              ListTile(
-                leading: Icon(Icons.home),
-                title: Text('Home'),
-                onTap: () {
-                  Navigator.pop(context); // Close drawer
-                  // Handle navigation
-                },
-              ),
-              ListTile(
-                leading: Icon(Icons.settings),
-                title: Text('Settings'),
-                onTap: () {
-                  Navigator.pop(context);
-                  // Handle navigation
-                },
               ),
             ],
           ),
         ),
-        body:HomePage(),
       ),
     );
   }
