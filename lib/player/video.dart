@@ -31,70 +31,65 @@ class _HomePageState extends State<video> {
   Widget build(BuildContext context) {
     return Scaffold(
 
-      body: Column(
-        children: [
-          ListView.builder(
-            itemCount: videos.length,
-            itemBuilder: (context, index) {
-              var video = videos[index];
-              return
+      body: ListView.builder(
+        itemCount: videos.length,
+        itemBuilder: (context, index) {
+          var video = videos[index];
+          return
 
-                //   ListTile(
-                //   leading: Image.network('${video["thumbnail"]}'),
-                //   title: Text(video["title"]),
-                //   subtitle: Text(video["description"]),
-                //   onTap: () {
-                //     Navigator.push(
-                //       context,
-                //       MaterialPageRoute(
-                //         builder: (context) => VideoPlayerPage(video: video),
-                //       ),
-                //     );
-                //   },
-                // )
+            //   ListTile(
+            //   leading: Image.network('${video["thumbnail"]}'),
+            //   title: Text(video["title"]),
+            //   subtitle: Text(video["description"]),
+            //   onTap: () {
+            //     Navigator.push(
+            //       context,
+            //       MaterialPageRoute(
+            //         builder: (context) => VideoPlayerPage(video: video),
+            //       ),
+            //     );
+            //   },
+            // )
 
 
-                InkWell(
-                  onTap: (){
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => VideoPlayerPage(video: video),
-                      ),
-                    );
-                  },
-                  child: Container(
-                    height:260,
-                    width: MediaQuery.of(context).size.width,
-                    child:Column(
-                      children: [
-                        Container(
-                          height: 200,
-                          width: MediaQuery.of(context).size.width,
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                              image: NetworkImage('${video["thumbnail"]}'),
-                              fit: BoxFit.cover, // Optional: Adjust image fitting
-                            ),
-                          ),
-                        ),
-
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(video["title"]),
-                          ],
-                        )
-
-                      ],
-                    ),
+            InkWell(
+              onTap: (){
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => VideoPlayerPage(video: video),
                   ),
                 );
-            },
-          )
+              },
+              child: Container(
+                height:260,
+                width: MediaQuery.of(context).size.width,
+                child:Column(
+                  children: [
+                    Container(
+                      height: 200,
+                      width: MediaQuery.of(context).size.width,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: NetworkImage('${video["thumbnail"]}'),
+                          fit: BoxFit.cover, // Optional: Adjust image fitting
+                        ),
+                      ),
+                    ),
 
-        ],
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(video["title"]),
+                      ],
+                    )
+
+                  ],
+                ),
+              ),
+            );
+        },
       ),
     );
   }
