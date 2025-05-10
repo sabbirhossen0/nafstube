@@ -29,7 +29,7 @@ class _UploadPageState extends State<UploadPage> {
       "video_file": await MultipartFile.fromFile(_video!.path, filename: fileName),
     });
 
-    await dio.post('http://192.168.0.111:8001/videos/', data: formData);
+    await dio.post('http://127.0.0.1:8001/videos/', data: formData);
   }
 
   @override
