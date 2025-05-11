@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:nafstube/player/video.dart';
 import 'package:nafstube/player/bar.dart';
 import 'package:nafstube/player/responsive.dart';
@@ -8,7 +9,10 @@ import 'package:nafstube/player/sidemanu.dart';
 
 //controllar
 
+import 'package:nafstube/player/Controllar/sidecontrollar.dart';
+
 void main() {
+  Get.put(SideMenuController());
   runApp(const MyApp());
 }
 
@@ -26,7 +30,7 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         key: _scaffoldKey,
@@ -43,9 +47,13 @@ class _MyAppState extends State<MyApp> {
                 child: Row(
                   children: [
                     if (Responsive.isDesktop(context))
-                      SizedBox(
-                           width: 100,
-                          child: Sidemenu()),
+                      Obx(() {
+                        final controller = Get.find<SideMenuController>();
+                        return SizedBox(
+                          width: controller.sideMenuWidth, // 100 or 200
+                          child: Sidemenu(),
+                        );
+                      }),
 
                     Expanded(child: video()),
                   ],

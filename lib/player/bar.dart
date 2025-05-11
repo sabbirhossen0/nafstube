@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:nafstube/player/responsive.dart';
 
+import 'package:nafstube/player/Controllar/sidecontrollar.dart';
+
 
 class Bar extends StatefulWidget {
   const Bar({super.key});
@@ -12,6 +14,9 @@ class Bar extends StatefulWidget {
 }
 
 class _BarState extends State<Bar> {
+
+  final SideMenuController controller = Get.find();
+
 
   @override
   Widget build(BuildContext context) {
@@ -29,14 +34,19 @@ Row(
         },
       ),
 
-    if (Responsive.isDesktop(context))
-    IconButton(
-      icon: Icon(Icons.menu,color: Colors.black,),
-      onPressed: () {
-        Scaffold.of(context).openDrawer();
-      },
-    ),
-
+    // if (Responsive.isDesktop(context))
+    // IconButton(
+    //   icon: Icon(Icons.menu,color: Colors.black,),
+    //   onPressed: () {
+    //     Scaffold.of(context).openDrawer();
+    //   },
+    // ),
+      if (Responsive.isDesktop(context))
+        IconButton(icon: Icon(Icons.menu, color: Colors.black),
+        onPressed: () {
+          controller.toggleMenuWidth(); // Toggle between 100 and 200
+        },
+      ),
 
 
 
