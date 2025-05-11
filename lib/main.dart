@@ -6,6 +6,7 @@ import 'package:nafstube/player/draweview.dart';
 
 import 'package:nafstube/player/sidemanu.dart';
 
+//controllar
 
 void main() {
   runApp(const MyApp());
