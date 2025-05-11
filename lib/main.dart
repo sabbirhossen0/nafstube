@@ -4,6 +4,7 @@ import 'package:nafstube/player/bar.dart';
 import 'package:nafstube/player/responsive.dart';
 import 'package:nafstube/player/draweview.dart';
 
+import 'package:nafstube/player/sidemanu.dart';
 
 
 void main() {
@@ -29,7 +30,7 @@ class _MyAppState extends State<MyApp> {
       home: Scaffold(
         key: _scaffoldKey,
 
-        drawer: side(),
+        drawer: drawerview(),
 
 
 
@@ -41,9 +42,11 @@ class _MyAppState extends State<MyApp> {
                 child: Row(
                   children: [
                     if (Responsive.isDesktop(context))
-                      Expanded(flex: 1, child: side()),
+                      SizedBox(
+                           width: 100,
+                          child: Sidemenu()),
 
-                    Expanded(flex: 5, child: video()),
+                    Expanded(child: video()),
                   ],
                 ),
               ),
