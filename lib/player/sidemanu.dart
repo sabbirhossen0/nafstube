@@ -37,6 +37,10 @@ class _SidemenuState extends State<Sidemenu> {
                     ),
                   ),
                 ),
+
+                SizedBox(height: 20,),
+
+
                 Container(
                   width: 90,
                   child: Center(
@@ -48,6 +52,10 @@ class _SidemenuState extends State<Sidemenu> {
                     ),
                   ),
                 ),
+
+                SizedBox(height: 20,),
+
+
                 Container(
                   width: 90,
                   child: Center(
@@ -59,6 +67,10 @@ class _SidemenuState extends State<Sidemenu> {
                     ),
                   ),
                 ),
+
+
+                SizedBox(height: 20,),
+
                 Container(
                   width: 90,
                   child: Center(
@@ -71,7 +83,7 @@ class _SidemenuState extends State<Sidemenu> {
                   ),
                 ),
 
-
+                SizedBox(height: 20,),
                 Container(
                   width: 90,
                   child: Center(
