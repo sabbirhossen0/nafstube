@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:nafstube/player/responsive.dart';
 
 
-class side extends StatefulWidget {
-  const side({super.key});
+class drawerview extends StatefulWidget {
+  const drawerview({super.key});
 
   @override
-  State<side> createState() => _SideState();
+  State<drawerview> createState() => _SideState();
 }
 
-class _SideState extends State<side> {
+class _SideState extends State<drawerview> {
   // Declare the language controller
 
   // Main topic categories with subcategories
@@ -18,9 +19,10 @@ class _SideState extends State<side> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 10),
-      child: Drawer(
+      padding: const EdgeInsets.only(top: 0),
+      child:  Drawer(
         child:Container(
+
           color: Colors.green,
         )
       ),

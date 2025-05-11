@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:nafstube/player/video.dart';
 import 'package:nafstube/player/bar.dart';
 import 'package:nafstube/player/responsive.dart';
-import 'package:nafstube/player/sidemenu.dart';
+import 'package:nafstube/player/draweview.dart';
 
 
 
