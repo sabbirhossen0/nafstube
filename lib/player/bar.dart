@@ -19,12 +19,19 @@ class _BarState extends State<Bar> {
 
   final TextEditingController _searchController = TextEditingController();
   bool showSheet = false;
-
+  List<String> searchHistory = [];
 
 
 
   @override
   Widget build(BuildContext context) {
+
+
+    List<String> filteredHistory = searchHistory
+        .where((item) => item.toLowerCase().contains(_searchController.text.toLowerCase()))
+        .toList();
+
+
     return Padding(
       padding: const EdgeInsets.only(top: 10.0),
       child: Column(
@@ -82,6 +89,8 @@ Spacer(),
           // ),
 
 
+
+          /// Stack with Search and Suggestions
           Stack(
             children: [
               Container(
@@ -89,18 +98,49 @@ Spacer(),
                 width: 250,
                 child: TextField(
                   controller: _searchController,
-                  decoration: const InputDecoration(
+                  decoration: InputDecoration(
                     labelText: 'Search for products',
-                    border: OutlineInputBorder(),
-                    prefixIcon: Icon(Icons.search),
+                    border: const OutlineInputBorder(),
+                    // suffixIcon: Icon(Icons.search),
+                    suffixIcon: GestureDetector(
+                      onTap: () {
+                        final query = _searchController.text.trim();
+                        if (query.isNotEmpty) {
+                          setState(() {
+                            if (!searchHistory.contains(query)) {
+                              searchHistory.insert(0, query);
+                            }
+                            showSheet = false;
+                          });
+
+                          // Add your actual search logic here
+                          print("Searched for: $query");
+                        }
+                      },
+                      child: const Icon(Icons.search),
+                    ),
                   ),
                   onChanged: (query) {
                     setState(() {
                       showSheet = query.isNotEmpty;
                     });
                   },
+                  onSubmitted: (query) {
+                    if (query.trim().isEmpty) return;
+                    setState(() {
+                      if (!searchHistory.contains(query)) {
+                        searchHistory.insert(0, query);
+                      }
+                      showSheet = false;
+                    });
+
+                    // Add your actual search logic here too
+                    print("Submitted search: $query");
+                  },
                 ),
               ),
+
+              // Suggestion/history sheet
               if (showSheet)
                 Positioned(
                   top: 55,
@@ -108,24 +148,26 @@ Spacer(),
                     width: 250,
                     color: Colors.white,
                     child: Column(
-                      children: List.generate(3, (index) {
+                      children: filteredHistory.isEmpty
+                          ? [const ListTile(title: Text("No history"))]
+                          : filteredHistory.map((entry) {
                         return ListTile(
-                          title: Text("Suggestion $index"),
+                          title: Text(entry),
+                          leading: const Icon(Icons.history),
                           onTap: () {
-                            _searchController.text = "Suggestion $index";
+                            _searchController.text = entry;
                             setState(() => showSheet = false);
+
+                            // Add your actual search logic here if needed
+                            print("Tapped on history: $entry");
                           },
                         );
-                      }),
+                      }).toList(),
                     ),
                   ),
                 ),
             ],
           ),
-
-
-
-
 
 
 

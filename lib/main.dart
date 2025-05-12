@@ -7,6 +7,8 @@ import 'package:nafstube/player/draweview.dart';
 
 import 'package:nafstube/player/sidemanu.dart';
 
+import 'package:nafstube/player/search_video.dart';
+
 //controllar
 
 import 'package:nafstube/player/Controllar/sidecontrollar.dart';
@@ -26,6 +28,19 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
 
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
+
+
+  int _selectedIndex = 0;
+
+
+  late List<Widget> _pages = [
+    searchvideo(),
+    video()
+  ];
+
+
+
 
 
   @override
@@ -55,7 +70,7 @@ class _MyAppState extends State<MyApp> {
                         );
                       }),
 
-                    Expanded(child: video()),
+                    Expanded(child:_pages[_selectedIndex] ),
                   ],
                 ),
               ),
