@@ -29,68 +29,65 @@ class _HomePageState extends State<video> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    final screenWidth = MediaQuery.of(context).size.width;
+    final isMobile = screenWidth < 600; // You can adjust the threshold
+    final crossAxisCount = isMobile ? 1 : 4;
 
+    return Scaffold(
       body: Padding(
         padding: const EdgeInsets.only(top: 20.0),
-        child: ListView.builder(
+        child: GridView.builder(
+          padding: const EdgeInsets.all(8.0),
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: crossAxisCount,
+            crossAxisSpacing: 10,
+            mainAxisSpacing: 10,
+            childAspectRatio: 1.3,
+          ),
           itemCount: videos.length,
           itemBuilder: (context, index) {
             var video = videos[index];
-            return
-
-              //   ListTile(
-              //   leading: Image.network('${video["thumbnail"]}'),
-              //   title: Text(video["title"]),
-              //   subtitle: Text(video["description"]),
-              //   onTap: () {
-              //     Navigator.push(
-              //       context,
-              //       MaterialPageRoute(
-              //         builder: (context) => VideoPlayerPage(video: video),
-              //       ),
-              //     );
-              //   },
-              // )
-
-
-              InkWell(
-                onTap: (){
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => VideoPlayerPage(video: video),
-                    ),
-                  );
-                },
-                child: Container(
-                  height:260,
-                  width: MediaQuery.of(context).size.width,
-                  child:Column(
-                    children: [
-                      Container(
-                        height: 200,
-                        width: MediaQuery.of(context).size.width,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: NetworkImage('${video["thumbnail"]}'),
-                            fit: BoxFit.cover, // Optional: Adjust image fitting
-                          ),
+            return InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => VideoPlayerPage(video: video),
+                  ),
+                );
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  color: Colors.grey[200],
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      height: 130,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        borderRadius: const BorderRadius.vertical(top: Radius.circular(8)),
+                        image: DecorationImage(
+                          image: NetworkImage('${video["thumbnail"]}'),
+                          fit: BoxFit.contain,
                         ),
                       ),
-
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(video["title"]),
-                        ],
-                      )
-
-                    ],
-                  ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        video["title"],
+                        style: const TextStyle(fontWeight: FontWeight.bold),
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                  ],
                 ),
-              );
+              ),
+            );
           },
         ),
       ),
