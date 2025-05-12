@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:nafstube/player/responsive.dart';
 
 import 'package:nafstube/player/Controllar/sidecontrollar.dart';
-
+import 'package:nafstube/player/Controllar/searchview.dart';
 
 class Bar extends StatefulWidget {
   const Bar({super.key});
@@ -16,6 +16,11 @@ class Bar extends StatefulWidget {
 class _BarState extends State<Bar> {
 
   final SideMenuController controller = Get.find();
+
+  final vsearchController searchviews = Get.put(vsearchController());
+
+
+
 
   final TextEditingController _searchController = TextEditingController();
   bool showSheet = false;
@@ -63,8 +68,23 @@ class _BarState extends State<Bar> {
         ),
       SizedBox(width: 20,),
 
-         Image.network('https://scontent.fdac41-1.fna.fbcdn.net/v/t39.30808-6/466403359_578527141341423_3069202312520923209_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=AgjrIDjWpiYQ7kNvwHM3HE6&_nc_oc=Adl4d7iG1sHu3fkhYT_5dRg_EmpcHOYugQXtP73I0obKwa6wNUENok0SCupizpTPJqc&_nc_zt=23&_nc_ht=scontent.fdac41-1.fna&_nc_gid=Zn3LFsQy_z8aiWtVYm0oIQ&oh=00_AfI6t-iDBi0pnNTvl26KEdRuWfP_fCAi6p1joBYSv2cXyA&oe=6824FE2C',height: 30,width: 30,),
-      Text("NafsTube"),
+      InkWell(
+        onTap: (){
+          searchviews.setQuery(1);
+
+
+        },
+        child: Row(
+          children: [
+            Image.network('https://scontent.fdac41-1.fna.fbcdn.net/v/t39.30808-6/466403359_578527141341423_3069202312520923209_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=AgjrIDjWpiYQ7kNvwHM3HE6&_nc_oc=Adl4d7iG1sHu3fkhYT_5dRg_EmpcHOYugQXtP73I0obKwa6wNUENok0SCupizpTPJqc&_nc_zt=23&_nc_ht=scontent.fdac41-1.fna&_nc_gid=Zn3LFsQy_z8aiWtVYm0oIQ&oh=00_AfI6t-iDBi0pnNTvl26KEdRuWfP_fCAi6p1joBYSv2cXyA&oe=6824FE2C',height: 30,width: 30,),
+            Text("NafsTube"),
+          ],
+
+        ),
+      ),
+
+
+
       Spacer(),
 
 Spacer(),
@@ -104,6 +124,9 @@ Spacer(),
                     // suffixIcon: Icon(Icons.search),
                     suffixIcon: GestureDetector(
                       onTap: () {
+
+                        searchviews.setQuery(0);
+
                         final query = _searchController.text.trim();
                         if (query.isNotEmpty) {
                           setState(() {

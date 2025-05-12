@@ -12,6 +12,7 @@ import 'package:nafstube/player/search_video.dart';
 //controllar
 
 import 'package:nafstube/player/Controllar/sidecontrollar.dart';
+import 'package:nafstube/player/Controllar/searchview.dart';
 
 void main() {
   Get.put(SideMenuController());
@@ -70,7 +71,10 @@ class _MyAppState extends State<MyApp> {
                         );
                       }),
 
-                    Expanded(child:_pages[_selectedIndex] ),
+                    Expanded(child:Obx((){
+                      final searchController = Get.find<vsearchController>();
+                      return _pages[searchController.getpage];
+                    }) ),
                   ],
                 ),
               ),

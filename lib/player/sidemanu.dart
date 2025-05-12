@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:nafstube/player/Controllar/sidecontrollar.dart';
 
+import 'package:nafstube/player/Controllar/searchview.dart';
+
 class Sidemenu extends StatefulWidget {
   const Sidemenu({super.key});
 
@@ -12,6 +14,9 @@ class Sidemenu extends StatefulWidget {
 class _SidemenuState extends State<Sidemenu> {
 
   final controller = Get.find<SideMenuController>();
+
+  final vsearchController searchviews = Get.put(vsearchController());
+
 
   @override
   Widget build(BuildContext context) {
@@ -28,14 +33,19 @@ class _SidemenuState extends State<Sidemenu> {
               children: [
                 if (controller.sideMenuWidth == 100) ...[
 
-                  Container(
-                    width: 90,
-                    child: Center(
-                      child: Column(
-                        children: [
-                          Icon(Icons.home),
-                          Text("Home")
-                        ],
+                  InkWell(
+                    onTap: (){
+                      searchviews.setQuery(1);
+                    },
+                    child: Container(
+                      width: 90,
+                      child: Center(
+                        child: Column(
+                          children: [
+                            Icon(Icons.home),
+                            Text("Home")
+                          ],
+                        ),
                       ),
                     ),
                   ),
