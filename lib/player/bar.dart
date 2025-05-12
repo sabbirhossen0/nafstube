@@ -17,6 +17,11 @@ class _BarState extends State<Bar> {
 
   final SideMenuController controller = Get.find();
 
+  final TextEditingController _searchController = TextEditingController();
+  bool showSheet = false;
+
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +59,83 @@ class _BarState extends State<Bar> {
          Image.network('https://scontent.fdac41-1.fna.fbcdn.net/v/t39.30808-6/466403359_578527141341423_3069202312520923209_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=AgjrIDjWpiYQ7kNvwHM3HE6&_nc_oc=Adl4d7iG1sHu3fkhYT_5dRg_EmpcHOYugQXtP73I0obKwa6wNUENok0SCupizpTPJqc&_nc_zt=23&_nc_ht=scontent.fdac41-1.fna&_nc_gid=Zn3LFsQy_z8aiWtVYm0oIQ&oh=00_AfI6t-iDBi0pnNTvl26KEdRuWfP_fCAi6p1joBYSv2cXyA&oe=6824FE2C',height: 30,width: 30,),
       Text("NafsTube"),
       Spacer(),
-      IconButton(onPressed: (){}, icon: Icon(Icons.account_circle_rounded))
+
+Spacer(),
+
+
+          // Container(
+          //   height: 50,
+          //   width: 100,
+          //   child: TextField(
+          //     // controller: _searchController,
+          //     decoration: const InputDecoration(
+          //
+          //       labelText: 'Search for products',
+          //       border: OutlineInputBorder(),
+          //       prefixIcon: Icon(Icons.search),
+          //     ),
+          //     onChanged: (query) {
+          //       // Trigger search whenever the text changes
+          //
+          //     },
+          //   ),
+          // ),
+
+
+          Stack(
+            children: [
+              Container(
+                height: 50,
+                width: 250,
+                child: TextField(
+                  controller: _searchController,
+                  decoration: const InputDecoration(
+                    labelText: 'Search for products',
+                    border: OutlineInputBorder(),
+                    prefixIcon: Icon(Icons.search),
+                  ),
+                  onChanged: (query) {
+                    setState(() {
+                      showSheet = query.isNotEmpty;
+                    });
+                  },
+                ),
+              ),
+              if (showSheet)
+                Positioned(
+                  top: 55,
+                  child: Container(
+                    width: 250,
+                    color: Colors.white,
+                    child: Column(
+                      children: List.generate(3, (index) {
+                        return ListTile(
+                          title: Text("Suggestion $index"),
+                          onTap: () {
+                            _searchController.text = "Suggestion $index";
+                            setState(() => showSheet = false);
+                          },
+                        );
+                      }),
+                    ),
+                  ),
+                ),
+            ],
+          ),
+
+
+
+
+
+
+
+
+
+
+          Spacer(),
+
+          IconButton(onPressed: (){}, icon: Icon(Icons.account_circle_rounded)),
+
 
 
         ],
