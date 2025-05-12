@@ -64,7 +64,7 @@ class _SidemenuState extends State<Sidemenu> {
                       child: Column(
                         children: [
                           Icon(Icons.video_camera_front_outlined),
-                          Text("Subscripton")
+                          Text("Subscription")
                         ],
                       ),
                     ),
@@ -142,13 +142,97 @@ class _SidemenuState extends State<Sidemenu> {
                         children: [
                           Icon(Icons.video_camera_front_outlined,size: 32,),
                           SizedBox(width: 5,),
-                          Text("Home")
+                          Text("Subscription")
                         ],
                       ),
                     ),
                   ),
                   SizedBox(height: 20,),
 
+
+
+                  //spacer here
+                  Container(
+                    height: 2,
+                    width: double.infinity,
+                    color: Colors.black12, // or any color you want
+                  ),
+
+
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20.0,top: 10),
+                    child: Container(
+                      child: Row(
+
+                        children: [
+                          Icon(Icons.account_circle_rounded,size: 32,),
+                          SizedBox(width: 5,),
+                          Text("You")
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 20,),
+
+
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20.0),
+                    child: Container(
+                      child: Row(
+
+                        children: [
+                          Icon(Icons.history,size: 32,),
+                          SizedBox(width: 5,),
+                          Text("History")
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 20,),
+
+
+                  //spacer
+                  Container(
+                          height: 2,
+                          width: double.infinity,
+                          color: Colors.black12, // or any color you want
+                        ),
+
+
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20.0,top: 15),
+                    child: Container(
+
+
+
+                      child: Column(
+                        children: [
+                          Text("Sign in to like videos,\ncomment, and subscribe.",style: TextStyle(
+                            fontSize: 16
+                          ),),
+                         Container(
+
+                           decoration: BoxDecoration(
+                               borderRadius: BorderRadius.circular(30),
+                               border: Border.all(color: Colors.black)
+                           ),
+
+                           child: Row(
+                             children: [
+                               Icon(Icons.account_circle_rounded),
+                               SizedBox(width: 5,),
+                               Text("Sign in")
+                             ],
+                           ) ,
+                         )
+
+
+
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 20,),
 
                 ],
               ],
