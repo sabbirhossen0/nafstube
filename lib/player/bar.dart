@@ -87,7 +87,7 @@ class _BarState extends State<Bar> {
 
       Spacer(),
 
-Spacer(),
+
 
 
           // Container(
@@ -119,15 +119,20 @@ Spacer(),
                 child: TextField(
                   controller: _searchController,
                   decoration: InputDecoration(
-                    labelText: 'Search for products',
-                    border: const OutlineInputBorder(),
+                    labelText: 'Search your Visson',
+                    border: const OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(40))
+                    ),
+
+
                     // suffixIcon: Icon(Icons.search),
                     suffixIcon: GestureDetector(
                       onTap: () {
-
-                        searchviews.setQuery(0);
-
                         final query = _searchController.text.trim();
+                     if(query.isNotEmpty){searchviews.setQuery(0);}
+
+
+
                         if (query.isNotEmpty) {
                           setState(() {
                             if (!searchHistory.contains(query)) {
@@ -191,14 +196,15 @@ Spacer(),
                 ),
             ],
           ),
-
-
+SizedBox(height: 8,),
+Image.network("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiMLnfL5rQkrCV9cFp1_fXGKe6s_K97UzLuQrlWu_BBQohslxJl_kdeKG5HqT-wEz8L58&usqp=CAU",width: 40,height: 40,),
 
 
 
 
           Spacer(),
-
+ 
+          Icon(Icons.more_vert),
           IconButton(onPressed: (){}, icon: Icon(Icons.account_circle_rounded)),
 
 

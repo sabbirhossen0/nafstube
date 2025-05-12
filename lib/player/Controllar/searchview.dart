@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 
 class vsearchController extends GetxController {
-  var  searchQuery = 0.obs; // Reactive variable
+  var  searchQuery = 1.obs; // Reactive variable
 
   // Method to set the value
   void setQuery(int value) {
