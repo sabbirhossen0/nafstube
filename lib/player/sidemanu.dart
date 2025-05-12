@@ -239,6 +239,192 @@ class _SidemenuState extends State<Sidemenu> {
                     ),
                   ),
                   SizedBox(height: 20,),
+                  Container(
+                    height: 2,
+                    width: double.infinity,
+                    color: Colors.black12, // or any color you want
+                  ),
+
+
+                  Text("Explore",style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18
+                  ),),
+
+
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20.0),
+                    child: Container(
+                      child: Row(
+
+                        children: [
+                          Icon(Icons.trending_up,size: 32,),
+                          SizedBox(width: 5,),
+                          Text("Trending")
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 20,),
+
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20.0),
+                    child: Container(
+                      child: Row(
+
+                        children: [
+                          Icon(Icons.music_note,size: 32,),
+                          SizedBox(width: 5,),
+                          Text("Music")
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 20,),
+
+
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20.0),
+                    child: Container(
+                      child: Row(
+
+                        children: [
+                          Icon(Icons.sports_esports,size: 32,),
+                          SizedBox(width: 5,),
+                          Text("Gaming")
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 20,),
+
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20.0),
+                    child: Container(
+                      child: Row(
+
+                        children: [
+                          Icon(Icons.sports_bar_sharp,size: 32,),
+                          SizedBox(width: 5,),
+                          Text("Sport")
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 20,),
+
+
+
+                  Container(
+                    height: 2,
+                    width: double.infinity,
+                    color: Colors.black12, // or any color you want
+                  ),
+
+SizedBox(height: 15,),
+                  Text("More from Nafstube",style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18
+                  ),),
+
+
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20.0),
+                    child: Container(
+                      child: Row(
+
+                        children: [
+                          Icon(Icons.music_video,size: 32,),
+                          SizedBox(width: 5,),
+                          Text("Nafstube Music")
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 20,),
+
+
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20.0),
+                    child: Container(
+                      child: Row(
+
+                        children: [
+                          Icon(Icons.boy,size: 32,),
+                          SizedBox(width: 5,),
+                          Text("Nafstube kids")
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 20,),
+
+                  Container(
+                    height: 2,
+                    width: double.infinity,
+                    color: Colors.black12, // or any color you want
+                  ),
+
+
+                  SizedBox(height: 15,),
+
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20.0),
+                    child: Container(
+                      child: Row(
+
+                        children: [
+                          Icon(Icons.report_problem,size: 32,),
+                          SizedBox(width: 5,),
+                          Text("Setting")
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 20,),
+
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20.0),
+                    child: Container(
+                      child: Row(
+
+                        children: [
+                          Icon(Icons.help_outline,size: 32,),
+                          SizedBox(width: 5,),
+                          Text("Help")
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 20,),
+
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20.0),
+                    child: Container(
+                      child: Row(
+
+                        children: [
+                          Icon(Icons.feedback_outlined,size: 32,),
+                          SizedBox(width: 5,),
+                          Text("Send Feedback")
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 20,),
+                  Container(
+                    height: 2,
+                    width: double.infinity,
+                    color: Colors.black12, // or any color you want
+                  ),
+
+                  SizedBox(height: 15,),
+                  
+                  Text("Copyright 2025 Peart Soft llc")
+
+
+                  
+
 
                 ],
               ],
