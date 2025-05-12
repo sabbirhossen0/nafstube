@@ -208,21 +208,27 @@ class _SidemenuState extends State<Sidemenu> {
                       child: Column(
                         children: [
                           Text("Sign in to like videos,\ncomment, and subscribe.",style: TextStyle(
-                            fontSize: 16
+                            fontSize: 14
                           ),),
-                         Container(
 
+                         SizedBox(height: 10,),
+                         Container(
+                     width: 100,
+                           height: 35,
                            decoration: BoxDecoration(
-                               borderRadius: BorderRadius.circular(30),
+                             color: Colors.blue,
+                               borderRadius: BorderRadius.circular(35),
                                border: Border.all(color: Colors.black)
                            ),
 
-                           child: Row(
-                             children: [
-                               Icon(Icons.account_circle_rounded),
-                               SizedBox(width: 5,),
-                               Text("Sign in")
-                             ],
+                           child: Center(
+                             child: Row(
+                               children: [
+                                 Icon(Icons.account_circle_rounded),
+                                 SizedBox(width: 5,),
+                                 Text("Sign in")
+                               ],
+                             ),
                            ) ,
                          )
 
