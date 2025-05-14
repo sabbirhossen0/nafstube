@@ -114,12 +114,12 @@ class _BarState extends State<Bar> {
           Stack(
             children: [
               Container(
-                height: 50,
+                height: 35,
                 width: 200,
                 child: TextField(
                   controller: _searchController,
                   decoration: InputDecoration(
-                    labelText: 'Search your Visson',
+                    // labelText: 'Search your Visson',
                     border: const OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(40))
                     ),
