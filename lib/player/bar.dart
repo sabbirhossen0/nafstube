@@ -115,7 +115,7 @@ class _BarState extends State<Bar> {
             children: [
               Container(
                 height: 50,
-                width: 250,
+                width: 200,
                 child: TextField(
                   controller: _searchController,
                   decoration: InputDecoration(
