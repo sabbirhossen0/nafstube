@@ -295,8 +295,8 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
                       padding: const EdgeInsets.all(8.0),
                       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 1,
-                        crossAxisSpacing: 10,
-                        mainAxisSpacing: 10,
+                        crossAxisSpacing: 1,
+                        mainAxisSpacing: 1,
                         childAspectRatio: 1.3,
                       ),
                       itemCount: videos.length,
@@ -316,7 +316,7 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
                               borderRadius: BorderRadius.circular(8),
                               color: Colors.grey[200],
                             ),
-                            child: Column(
+                            child: Row(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Container(
@@ -326,7 +326,8 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
                                     borderRadius: const BorderRadius.vertical(top: Radius.circular(8)),
                                     image: DecorationImage(
                                       image: NetworkImage('${video["thumbnail"]}'),
-                                      fit: BoxFit.contain,
+                                      // fit: BoxFit.contain,
+                                      scale: 2
                                     ),
                                   ),
                                 ),
