@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 import 'package:dio/dio.dart';
 
+import 'package:nafstube/player/bar.dart';
+
+
 import 'package:nafstube/player/responsive.dart';
 class VideoPlayerPage extends StatefulWidget {
   final Map video;
@@ -67,10 +70,12 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(widget.video["title"])),
       body: SingleChildScrollView(
         child: Column(
           children: [
+
+            Bar(),
+
 
             if (Responsive.isDesktop(context))
             Row(
