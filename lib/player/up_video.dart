@@ -5,7 +5,6 @@ import 'package:dio/dio.dart';
 class UploadPage extends StatefulWidget {
   @override
   _UploadPageState createState() => _UploadPageState();
-
 }
 
 class _UploadPageState extends State<UploadPage> {

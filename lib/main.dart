@@ -4,9 +4,7 @@ import 'package:nafstube/player/video.dart';
 import 'package:nafstube/player/bar.dart';
 import 'package:nafstube/player/responsive.dart';
 import 'package:nafstube/player/draweview.dart';
-
 import 'package:nafstube/player/sidemanu.dart';
-
 import 'package:nafstube/player/search_video.dart';
 
 //controllar
@@ -33,8 +31,6 @@ class _MyAppState extends State<MyApp> {
 
 
   int _selectedIndex = 0;
-
-
   late List<Widget> _pages = [
     searchvideo(),
     video()
@@ -52,9 +48,6 @@ class _MyAppState extends State<MyApp> {
         key: _scaffoldKey,
 
         drawer: drawerview(),
-
-
-
         body: SafeArea(
           child: Column(
             children: [
